@@ -5,7 +5,7 @@ let setNama = () => {
 }
 
 // MUNCULKAN PROMPT
-// setNama()
+setNama()
 
 // SCROLL
 window.onscroll = function () {
@@ -70,4 +70,106 @@ next.addEventListener('click', function () {
     // next.style.animation = "muncul"
     // }
 })
+
+// VALIDASI
+
+let kirimPesan = document.querySelector('#kirim-pesan')
+
+kirimPesan.addEventListener('click', function () {
+    let input = document.querySelectorAll('input')
+    let textarea = document.querySelector('textarea')
+    let count = 0;
+    input.forEach(function (value) {
+        let type = value.getAttribute('type');
+        let name = value.getAttribute('name');
+        // if (type == 'radio') {
+        //     if (value.checked) {
+
+        //     }
+        // }
+
+        if (value.value == '') {
+            count += 1;
+            errorHandler(name)
+        }
+    })
+    if (textarea.value == '') {
+        count += 1;
+        document.querySelector('textarea[name="' + textarea.getAttribute("name") + '"').nextElementSibling.innerHTML = "Tidak boleh kosong"
+    }
+
+    if (count == 0) {
+        document.querySelectorAll('small[class="error"]').forEach(function (e) {
+            e.innerHTML = ""
+        })
+        document.querySelector('.current-time').innerHTML = curdate()
+        document.querySelector('.nama').innerHTML = document.querySelector('input[name="nama"]').value
+        document.querySelector('.tanggal-lahir').innerHTML = document.querySelector('input[name="tanggal_lahir"]').value
+        document.querySelector('.jenis-kelamin').innerHTML = document.querySelector('input[name="jenis_kelamin"]:checked').value
+        document.querySelector('.pesan').innerHTML = document.querySelector('textarea[name="pesan"]').value
+    }
+
+})
+
+let curdate = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate();
+    if (month == 1) {
+        var bulan = 'Januari'
+    }
+    else if (month == 2) {
+        var bulan = 'Februari'
+
+    }
+    else if (month == 3) {
+        var bulan = 'Maret'
+
+    }
+    else if (month == 4) {
+        var bulan = 'April'
+
+    }
+    else if (month == 5) {
+        var bulan = 'Mai'
+
+    }
+    else if (month == 6) {
+        var bulan = 'Juni'
+
+    }
+    else if (month == 7) {
+        var bulan = 'Juli'
+
+    }
+    else if (month == 8) {
+        var bulan = 'Agustus'
+
+    }
+    else if (month == 9) {
+        var bulan = 'September'
+
+    }
+    else if (month == 10) {
+        var bulan = 'Oktober'
+
+    }
+    else if (month == 11) {
+        var bulan = 'November'
+
+    }
+    else if (month == 12) {
+        var bulan = 'Desember'
+
+    }
+    const formattedDate = `${day} ${bulan} ${year}`;
+
+    return formattedDate
+}
+
+function errorHandler(name) {
+    document.querySelector('input[name="' + name + '"').nextElementSibling.innerHTML = "Tidak boleh kosong"
+
+}
 
