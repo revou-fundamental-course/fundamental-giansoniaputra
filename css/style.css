@@ -75,7 +75,7 @@ nav {
 /* AKHIR NAVIGASI */
 /* HERO */
 #hero {
-    background-image: url('/assets/img/hero.jpg');
+    background-image: url(assets/img/hero.jpg);
     background-size: cover;
     height: 100vh;
     display: flex;
