@@ -239,7 +239,11 @@ border-radius:10px;
 .ma {
     margin-top: 20px;
 }
-
+#message {
+    height: 85vh;
+    margin-bottom: 100px;
+    position: relative;
+}
 #message button {
     width: 85%;
     border: none;
@@ -276,6 +280,10 @@ footer {
     justify-content: end;
     background-color: #111111;
     color: white;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; */
 }
 
 /* RESPONSIVE */
@@ -285,6 +293,49 @@ footer {
         display: flex;
         align-items: center;
         margin: 0 10%;
+    }
+}
+@media screen and (max-width: 720px) {
+    #hero {
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    #hero .text {
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+    }
+    #hero .img-profil {
+        margin-top: 100px;
+    }
+    #hero .img-profil img {
+        width: 120%;
+    }
+
+    .img-banner img {
+        height: 150px;
+    }
+
+    #banner>.slides {
+        display: flex;
+        width: 100vw;
+        height: 150px;
+        overflow:hidden;
+    }
+
+    #photo-hq {
+        width: 100vw;
+        justify-content: start;
+        overflow-x: scroll;
+    }
+
+    #message .content {
+        grid-template-columns: 1fr;
+        gap:10px
     }
 }
 
